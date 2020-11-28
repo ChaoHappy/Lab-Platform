@@ -1,0 +1,12 @@
+server:
+  port:8080
+jdbc:
+  url: jdbc:mysql://localhost:3308/lab-platform?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+  username: root
+  password: 1111
+  driverClassName: com.mysql.jdbc.Driver
+
+jwt:
+  header: jwtToken
+  expiration: 360000
+  secret: iwqjhda8232bjgh432[cicada-smile]

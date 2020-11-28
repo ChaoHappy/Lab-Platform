@@ -1,0 +1,5 @@
+jdbc:
+  url: jdbc:mysql://localhost:3380/lab-platform?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+  username: root
+  password: 1111
+  driverClassName: MySQL
