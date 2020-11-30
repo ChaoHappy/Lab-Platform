@@ -12,9 +12,9 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import javax.sql.DataSource;
 
 /** 类功能描述：Hibernate SessionFactory配置 */
-//@Configuration
-//@PropertySource("classpath:sys.properties")
-//@ConfigurationProperties(prefix = "hibernate")
+@Configuration
+@PropertySource("classpath:sys.properties")
+@ConfigurationProperties(prefix = "hibernate")
 public class MainSessionFactoryConfig extends BaseSessionFactoryConfig {
 
     @Autowired

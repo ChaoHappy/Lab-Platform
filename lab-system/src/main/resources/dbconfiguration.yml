@@ -3,3 +3,10 @@ jdbc:
   username: root
   password: 1111
   driverClassName: MySQL
+hibernate:
+  dialect: org.hibernate.dialect.MySQL5Dialect
+  packagesToScan: com.chp
+  # interceptor: com.chp.**.HibernateInterceptor
+# 事物配置
+spring:
+  pointcut: execution(* com.chp..*Service.*(..))
