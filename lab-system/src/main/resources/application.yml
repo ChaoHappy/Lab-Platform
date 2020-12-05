@@ -1,7 +1,7 @@
 server:
   port:8080
 jdbc:
-  url: jdbc:mysql://localhost:3308/lab-platform?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+  url: jdbc:mysql://localhost:3306/lab-platform?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
   username: root
   password: 1111
   driverClassName: com.mysql.jdbc.Driver
@@ -10,3 +10,11 @@ jwt:
   header: jwtToken
   expiration: 360000
   secret: iwqjhda8232bjgh432[cicada-smile]
+
+hibernate:
+  dialect: org.hibernate.dialect.MySQL5Dialect
+  packagesToScan: com.chp
+  # interceptor: com.chp.**.HibernateInterceptor
+# 事物配置
+spring:
+  pointcut: execution(* com.chp..*Service.*(..))

@@ -17,17 +17,17 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-//@Configuration
+@Configuration
 // 借助spring data实现自动化的jpa repository，只需编写接口无需编写实现类
 // 相当于xml配置的<jpa:repositories base-package="com.example.repository" />
 // repositoryImplementationPostfix默认就是Impl
 // entityManagerFactoryRef默认就是entityManagerFactory
 // transactionManagerRef默认就是transactionManager
-//@EnableJpaRepositories(basePackages = {"com.chp.labsystem.modules.system.repository"},
-//        repositoryImplementationPostfix = "Impl",
-//        entityManagerFactoryRef = "entityManagerFactory",
-//        transactionManagerRef = "transactionManager")
-//@EnableTransactionManagement    // 启用事务管理器
+@EnableJpaRepositories(basePackages = {"com.chp.labsystem.modules.system.repository"},
+        repositoryImplementationPostfix = "Impl",
+        entityManagerFactoryRef = "entityManagerFactory",
+        transactionManagerRef = "transactionManager")
+@EnableTransactionManagement    // 启用事务管理器
 public class SpringDataJpaConfig {
 
     // 配置jpa厂商适配器（参见spring实战p320）

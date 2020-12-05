@@ -22,10 +22,4 @@ public class LoginController {
         System.out.println("lo");
         return "lo";
     }
-
-    @PostMapping("/user")
-    @PreAuthorize("@el.check('user:list')")
-    public String user(){
-        return "user";
-    }
 }

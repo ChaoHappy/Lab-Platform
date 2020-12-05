@@ -15,7 +15,7 @@ import org.springframework.transaction.interceptor.TransactionInterceptor;
 /** 类功能描述：事务配置 */
 @Configuration
 @EnableAspectJAutoProxy
-@PropertySource("classpath:sys.properties")
+@PropertySource(value = "classpath:dbconfiguration.yml")
 @ConfigurationProperties(prefix = "spring")
 public class MainTransactionConfig extends BaseTransactionConfig {
 

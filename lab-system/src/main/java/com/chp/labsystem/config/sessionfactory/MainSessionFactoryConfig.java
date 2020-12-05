@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 
 /** 类功能描述：Hibernate SessionFactory配置 */
 @Configuration
-@PropertySource("classpath:sys.properties")
+@PropertySource("classpath:dbconfiguration.yml")
 @ConfigurationProperties(prefix = "hibernate")
 public class MainSessionFactoryConfig extends BaseSessionFactoryConfig {
 

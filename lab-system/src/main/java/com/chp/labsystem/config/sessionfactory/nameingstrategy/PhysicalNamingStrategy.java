@@ -11,7 +11,7 @@ public class PhysicalNamingStrategy extends SpringPhysicalNamingStrategy {
 
     protected final transient Logger	log				= LoggerFactory.getLogger(getClass());
 
-    private static final String		TABLE_PREFIX	= "t_";
+    private static final String		TABLE_PREFIX	= "";
 
     private static final String		PRO_SUFFIX		= "_";
 
@@ -31,7 +31,7 @@ public class PhysicalNamingStrategy extends SpringPhysicalNamingStrategy {
         if (name.getText().contains(PRO_SUFFIX)) {
             return getIdentifier(name.getText(), name.isQuoted(), jdbcEnvironment);
         }
-        String columnName = super.toPhysicalTableName(name, jdbcEnvironment).getText() + PRO_SUFFIX;
+        String columnName = super.toPhysicalTableName(name, jdbcEnvironment).getText();
         return getIdentifier(columnName.toUpperCase(), name.isQuoted(), jdbcEnvironment);
     }
 }
