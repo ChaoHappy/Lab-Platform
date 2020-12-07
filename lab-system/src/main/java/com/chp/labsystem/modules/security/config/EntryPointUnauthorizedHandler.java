@@ -1,10 +1,14 @@
 package com.chp.labsystem.modules.security.config;
 
 
+import com.alibaba.fastjson.JSONObject;
+import com.chp.labcommon.utils.Result;
+import com.chp.labcommon.utils.enums.ResultStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -17,7 +21,11 @@ import java.io.IOException;
 public class EntryPointUnauthorizedHandler implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        // 当用户尝试访问安全的REST资源而不提供任何凭据时，将调用此方法发送401 响应
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException==null?"Unauthorized":authException.getMessage());
+        response.setContentType("application/json;charset=UTF-8");
+        ServletOutputStream out = response.getOutputStream();
+        String str = JSONObject.toJSONString(Result.failure(ResultStatus.BAD_REQUEST,"身份认证失败"));
+        out.write(str.getBytes("UTF-8"));
+        out.flush();
+        out.close();
     }
 }

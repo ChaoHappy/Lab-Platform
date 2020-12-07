@@ -1,6 +1,7 @@
 package com.chp.labsystem.modules.system.rest;
 
 import com.chp.labcommon.exception.BadRequestException;
+import com.chp.labcommon.utils.Result;
 import com.chp.labsystem.modules.system.domain.User;
 import com.chp.labsystem.modules.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +21,17 @@ public class UserController {
 
     @PostMapping("/users")
     @PreAuthorize("@el.check('user:list')")
-    public ResponseEntity<Object> user(){
-        return new ResponseEntity<>("user",HttpStatus.OK);
+    public Result<Void> user(){
+        return Result.success();
     }
 
     @GetMapping("/user")
     @PreAuthorize("@el.check('user:list')")
-    public ResponseEntity<Object> user(String username){
+    public Result<Object> user(String username){
         User user = userService.findByUsername(username);
         if(user==null){
             throw new BadRequestException("发生了异常");
         }
-        return new ResponseEntity<>(user,HttpStatus.OK);
+        return Result.success(user);
     }
 }

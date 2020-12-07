@@ -1,6 +1,8 @@
 package com.chp.labsystem.modules.security.config;
 
 import com.alibaba.fastjson.JSONObject;
+import com.chp.labcommon.utils.Result;
+import com.chp.labcommon.utils.enums.ResultStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -40,7 +42,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
     public void renderToken(HttpServletResponse response, String token) throws IOException {
         response.setContentType("application/json;charset=UTF-8");
         ServletOutputStream out = response.getOutputStream();
-        String str = JSONObject.toJSONString(token);
+        String str = JSONObject.toJSONString(Result.success(token));
         out.write(str.getBytes("UTF-8"));
         out.flush();
         out.close();
