@@ -5,6 +5,7 @@ import com.chp.labsystem.modules.system.domain.Menu;
 import com.chp.labsystem.modules.system.domain.Role;
 import com.chp.labsystem.modules.system.domain.User;
 import com.chp.labsystem.modules.system.repository.UserRespository;
+import com.chp.labsystem.modules.system.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,13 +23,12 @@ import java.util.stream.Collectors;
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserRespository userRespository;
+    private UserService userService;
 
     @Override
-    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //TODO： 从数据库中获取用户对象
-        User user = userRespository.findByUsername(username);
+        User user = userService.findByUsername(username);
         if (user==null) {
             throw new UsernameNotFoundException(String.format("%s.这个用户不存在", username));
         }

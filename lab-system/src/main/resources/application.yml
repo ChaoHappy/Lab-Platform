@@ -18,3 +18,8 @@ hibernate:
 # 事物配置
 spring:
   pointcut: execution(* com.chp..*Service.*(..))
+  redis:
+    host: 101.200.207.6
+    port: 6379
+    database: 0
+#    password: 123456
