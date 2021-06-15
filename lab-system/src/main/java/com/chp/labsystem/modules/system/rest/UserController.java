@@ -21,15 +21,15 @@ public class UserController {
 
     @PostMapping("/users")
     @PreAuthorize("@el.check('user:list')")
-    public Result<Void> user(){
+    public Result<Void> user() {
         return Result.success();
     }
 
     @GetMapping("/user")
     @PreAuthorize("@el.check('user:list')")
-    public Result<Object> user(String username){
+    public Result<Object> user(String username) {
         User user = userService.findByUsername(username);
-        if(user==null){
+        if (user == null) {
             throw new BadRequestException("发生了异常");
         }
         return Result.success(user);

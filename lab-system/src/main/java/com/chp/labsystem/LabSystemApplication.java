@@ -19,6 +19,7 @@ public class LabSystemApplication {
     public static void main(String[] args) {
         SpringApplication.run(LabSystemApplication.class, args);
     }
+
     @Bean
     public SpringContextHolder springContextHolder() {
         return new SpringContextHolder();

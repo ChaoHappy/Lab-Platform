@@ -12,7 +12,9 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
-/** 类功能描述：事务配置 */
+/**
+ * 类功能描述：事务配置
+ */
 @Configuration
 @EnableAspectJAutoProxy
 @PropertySource(value = "classpath:dbconfiguration.yml")

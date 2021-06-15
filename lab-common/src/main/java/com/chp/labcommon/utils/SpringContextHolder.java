@@ -6,6 +6,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.env.Environment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +62,8 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
         T result = defaultValue;
         try {
             result = getBean(Environment.class).getProperty(property, requiredType);
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
         return result;
     }
 

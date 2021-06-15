@@ -22,9 +22,9 @@ class LabSystemApplicationTests {
     }
 
     @Test
-    void testUser(){
+    void testUser() {
         User user = userRespository.findByUsername("admin");
-        System.out.println("用户："+user.getRoles());
+        System.out.println("用户：" + user.getRoles());
     }
 
 }

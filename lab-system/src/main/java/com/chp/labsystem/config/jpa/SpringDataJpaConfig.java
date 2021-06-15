@@ -56,9 +56,9 @@ public class SpringDataJpaConfig {
         emfb.setJpaVendorAdapter(jpaVendorAdapter);
         // 设置扫描基本包
         emfb.setPackagesToScan("com.chp");
-        Properties properties =  new Properties();
-        properties.put("hibernate.physical_naming_strategy","org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy");
-        properties.put("hibernate.implicit_naming_strategy","org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy");
+        Properties properties = new Properties();
+        properties.put("hibernate.physical_naming_strategy", "org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy");
+        properties.put("hibernate.implicit_naming_strategy", "org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy");
         emfb.setJpaProperties(properties);
         return emfb;
     }

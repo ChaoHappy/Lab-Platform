@@ -12,13 +12,13 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao {
 
     @Autowired
     public UserDaoImpl(SessionFactory sessionFactory) {
-        super(User.class,sessionFactory);
+        super(User.class, sessionFactory);
     }
 
     @Override
     public User findByUsername(String username) {
         String hql = "FROM User WHERE username=?0 AND enabled=1";
         Object[] args = {username};
-        return queryUniqueObject(hql,args);
+        return queryUniqueObject(hql, args);
     }
 }

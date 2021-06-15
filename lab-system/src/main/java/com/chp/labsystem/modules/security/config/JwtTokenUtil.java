@@ -9,12 +9,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * 生成令牌，验证等等一些操作
+ *
  * @author K. L. Mao
  * @create 2019/1/10
  */
@@ -27,6 +29,7 @@ public class JwtTokenUtil {
     // 过期时间 毫秒
     private Long expiration;
     private String header;
+
     /**
      * 从数据声明生成令牌
      *
@@ -37,6 +40,7 @@ public class JwtTokenUtil {
         Date expirationDate = new Date(System.currentTimeMillis() + expiration);
         return Jwts.builder().setClaims(claims).setExpiration(expirationDate).signWith(SignatureAlgorithm.HS512, secret).compact();
     }
+
     /**
      * 从令牌中获取数据声明
      *
@@ -52,6 +56,7 @@ public class JwtTokenUtil {
         }
         return claims;
     }
+
     /**
      * 生成令牌
      *
@@ -64,6 +69,7 @@ public class JwtTokenUtil {
         claims.put(Claims.ISSUED_AT, new Date());
         return generateToken(claims);
     }
+
     /**
      * 从令牌中获取用户名
      *
@@ -80,6 +86,7 @@ public class JwtTokenUtil {
         }
         return username;
     }
+
     /**
      * 判断令牌是否过期
      *
@@ -95,6 +102,7 @@ public class JwtTokenUtil {
             return true;
         }
     }
+
     /**
      * 刷新令牌
      *
@@ -112,6 +120,7 @@ public class JwtTokenUtil {
         }
         return refreshedToken;
     }
+
     /**
      * 验证令牌
      *

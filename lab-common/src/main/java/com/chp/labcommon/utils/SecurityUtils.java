@@ -22,6 +22,7 @@ public class SecurityUtils {
 
     /**
      * 获取当前登录的用户
+     *
      * @return UserDetails
      */
     public static UserDetails getCurrentUser() {
@@ -53,6 +54,7 @@ public class SecurityUtils {
 
     /**
      * 获取系统用户ID
+     *
      * @return 系统用户ID
      */
     public static Long getCurrentUserId() {
@@ -62,21 +64,23 @@ public class SecurityUtils {
 
     /**
      * 获取当前用户的数据权限
+     *
      * @return /
      */
-    public static List<Long> getCurrentUserDataScope(){
+    public static List<Long> getCurrentUserDataScope() {
         UserDetails userDetails = getCurrentUser();
         JSONArray array = JSONUtil.parseArray(new JSONObject(userDetails).get("dataScopes"));
-        return JSONUtil.toList(array,Long.class);
+        return JSONUtil.toList(array, Long.class);
     }
 
     /**
      * 获取数据权限级别
+     *
      * @return 级别
      */
     public static String getDataScopeType() {
         List<Long> dataScopes = getCurrentUserDataScope();
-        if(dataScopes.size() != 0){
+        if (dataScopes.size() != 0) {
             return "";
         }
         return DataScopeEnum.ALL.getValue();

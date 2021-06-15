@@ -12,8 +12,8 @@ public class UserDaoImplTest {
     private UserDao userDao;
 
     @Test
-    public void findByUsername(){
-       User user =  userDao.findByUsername("admin");
+    public void findByUsername() {
+        User user = userDao.findByUsername("admin");
         System.out.println(user.toString());
     }
 }

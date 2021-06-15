@@ -9,7 +9,9 @@ import org.springframework.transaction.interceptor.DefaultTransactionAttribute;
 import org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
-/** 类功能描述：事务配置 */
+/**
+ * 类功能描述：事务配置
+ */
 public class BaseTransactionConfig {
 
     private String pointcut;

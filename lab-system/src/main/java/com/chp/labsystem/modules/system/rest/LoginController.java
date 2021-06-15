@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
 
     @PostMapping("/login")
-    public String login(){
+    public String login() {
         System.out.println("login");
         return "aa";
     }
 
     @PostMapping("/lo")
-    public String lo(){
+    public String lo() {
         System.out.println("lo");
         return "lo";
     }

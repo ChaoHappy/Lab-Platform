@@ -28,13 +28,13 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
-* @author Zheng Jie
-* @date 2019-03-25
-*/
+ * @author Zheng Jie
+ * @date 2019-03-25
+ */
 @Entity
 @Getter
 @Setter
-@Table(name="sys_dept")
+@Table(name = "sys_dept")
 public class Dept extends BaseEntity implements Serializable {
 
     @Id
@@ -49,7 +49,7 @@ public class Dept extends BaseEntity implements Serializable {
 //    @ApiModelProperty(value = "角色")
     private Set<Role> roles;
 
-//    @ApiModelProperty(value = "排序")
+    //    @ApiModelProperty(value = "排序")
     private Integer deptSort;
 
     @NotBlank
@@ -60,10 +60,10 @@ public class Dept extends BaseEntity implements Serializable {
 //    @ApiModelProperty(value = "是否启用")
     private Boolean enabled;
 
-//    @ApiModelProperty(value = "上级部门")
+    //    @ApiModelProperty(value = "上级部门")
     private Long pid;
 
-//    @ApiModelProperty(value = "子节点数目", hidden = true)
+    //    @ApiModelProperty(value = "子节点数目", hidden = true)
     private Integer subCount = 0;
 
     @Override

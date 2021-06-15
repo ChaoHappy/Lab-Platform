@@ -9,13 +9,13 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 public class BaseSessionFactoryConfig {
-    private String		dialect;
+    private String dialect;
 
-    private String		packagesToScan;
+    private String packagesToScan;
 
-    private Boolean	showSql;
+    private Boolean showSql;
 
-    private String		interceptor;
+    private String interceptor;
 
     public LocalSessionFactoryBean buildSessionFactory(DataSource dataSource) {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();

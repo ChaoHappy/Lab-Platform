@@ -5,11 +5,11 @@ import com.alibaba.druid.pool.DruidDataSource;
 import javax.sql.DataSource;
 
 public class BaseDataSourceConfig {
-    private String	url;
+    private String url;
 
-    private String	username;
+    private String username;
 
-    private String	password;
+    private String password;
 
     public DataSource buildDataSource() {
         if (url == null) {

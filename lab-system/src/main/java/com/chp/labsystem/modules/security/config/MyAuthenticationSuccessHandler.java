@@ -16,8 +16,10 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 /**
  * 登录成功操作
+ *
  * @author K. L. Mao
  * @create 2019/1/15
  */
@@ -26,6 +28,7 @@ import java.io.IOException;
 public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
+
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -33,6 +36,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         String token = jwtTokenUtil.generateToken(userDetails);
         renderToken(httpServletResponse, token);
     }
+
     /**
      * 渲染返回 token 页面,因为前端页面接收的都是Result对象，故使用application/json返回
      *

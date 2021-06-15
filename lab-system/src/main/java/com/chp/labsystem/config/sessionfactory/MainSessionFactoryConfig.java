@@ -11,7 +11,9 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 import javax.sql.DataSource;
 
-/** 类功能描述：Hibernate SessionFactory配置 */
+/**
+ * 类功能描述：Hibernate SessionFactory配置
+ */
 @Configuration
 @PropertySource("classpath:dbconfiguration.yml")
 @ConfigurationProperties(prefix = "hibernate")

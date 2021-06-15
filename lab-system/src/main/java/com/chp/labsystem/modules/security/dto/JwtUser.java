@@ -19,32 +19,39 @@ public class JwtUser implements UserDetails {
         this.state = state;
         this.authorities = authorities;
     }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
+
     @Override
     public String getPassword() {
         return password;
     }
+
     @Override
     public String getUsername() {
         return username;
     }
+
     // 账户是否未过期
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
+
     // 账户是否未被锁
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
+
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
+
     @Override
     public boolean isEnabled() {
         return true;

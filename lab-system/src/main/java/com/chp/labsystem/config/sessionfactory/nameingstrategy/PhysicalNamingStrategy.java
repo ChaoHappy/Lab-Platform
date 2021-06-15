@@ -6,16 +6,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy;
 
-/** 类功能描述：类名、属性名映射数据表名、字段名命名规则转换类 */
+/**
+ * 类功能描述：类名、属性名映射数据表名、字段名命名规则转换类
+ */
 public class PhysicalNamingStrategy extends SpringPhysicalNamingStrategy {
 
-    protected final transient Logger	log				= LoggerFactory.getLogger(getClass());
+    protected final transient Logger log = LoggerFactory.getLogger(getClass());
 
-    private static final String		TABLE_PREFIX	= "";
+    private static final String TABLE_PREFIX = "";
 
-    private static final String		PRO_SUFFIX		= "_";
+    private static final String PRO_SUFFIX = "_";
 
-    /** 将实体名称转化表名称规则 规则：将类名全部大写，并加上"T_"的前缀 */
+    /**
+     * 将实体名称转化表名称规则 规则：将类名全部大写，并加上"T_"的前缀
+     */
     @Override
     public Identifier toPhysicalTableName(Identifier name, JdbcEnvironment jdbcEnvironment) {
         if (name.getText().toLowerCase().contains(TABLE_PREFIX)) {
@@ -25,7 +29,9 @@ public class PhysicalNamingStrategy extends SpringPhysicalNamingStrategy {
         return getIdentifier(tableName.toUpperCase(), name.isQuoted(), jdbcEnvironment);
     }
 
-    /** 将实体属性名称转化数据库字段名称规则 规则：按照驼峰命名规则，在大写字母前加入"_"并且全部转换大写后在最后加入"_" */
+    /**
+     * 将实体属性名称转化数据库字段名称规则 规则：按照驼峰命名规则，在大写字母前加入"_"并且全部转换大写后在最后加入"_"
+     */
     @Override
     public Identifier toPhysicalColumnName(Identifier name, JdbcEnvironment jdbcEnvironment) {
         if (name.getText().contains(PRO_SUFFIX)) {
